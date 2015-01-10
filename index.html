@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/todo-base.css">
+        <script src="js/lib/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- application content 
+
+          <h1 class="selected"></h1>
+            <div id="container"></div>
+          <script type="text/template" id="thumbs-template">
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                  <img data-src="holder.js/150x180" alt="...">
+                  <div class="caption">
+                        <h3><%= label %></h3>
+                  </div>
+                </a>
+             </div>
+          </script>  
+        -->
+
+        <section id="prospero-app">
+            <header id="header">
+              <h1>Manifests</h1>
+              <input id="new-manifest" placeholder="Add a manifest..." autofocus>
+            </header>
+            <section id="main">
+              <input id="toggle-all" type="checkbox">
+              <label for="toggle-all">Mark all for deletion</label>
+              <ul id="manifest-list"></ul>
+            </section>
+            <footer id="footer"></footer>
+          </section>
+          <div id="info">
+            <p>Double-click to edit a manifest</p>
+            <p>Written by <a href="https://github.com/sdellis">Shaun Ellis</a></p>
+          </div>
+
+
+        <script type="text/template" id="manifest-template">
+            <div class="view">
+              <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+              <label><%= label %></label>
+              <button class="destroy"></button>
+            </div>
+            <input class="edit" value="<%= label %>">
+        </script>
+
+        <script type="text/template" id="stats-template">
+
+            <span id="manifest-count"><strong><%= total %></strong> 
+            <%= total === 1 ? 'item' : 'items' %> in total</span>
+            
+            <ul id="filters">
+              <li>
+                <a class="selected" href="#/">All</a>
+              </li>
+              <li>
+                <a href="#/active">Active</a>
+              </li>
+              <li>
+                <a href="#/completed">Queued for Deletion</a>
+              </li>
+            </ul>
+            <% if (completed) { %>
+            <button id="clear-completed">Clear queued (<%= completed %>)</button>
+            <% } %>
+
+        </script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+        <script src="js/lib/underscore.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
+        <script src="js/lib/backbone.localStorage.js"></script>
+        <script src="js/lib/holder.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/models/manifest.js"></script>
+        <script src="js/collections/manifests.js"></script>
+        <script src="js/views/manifests.js"></script>
+        <script src="js/views/app.js"></script>
+        <script src="js/routers/router.js"></script>
+        <script src="js/app.js"></script>
+        
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        
+        
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+        /*
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+            */
+        </script>
+    </body>
+</html>
