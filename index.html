@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/todo-base.css">
+        <link rel="stylesheet" href="css/base.css">
         <script src="js/lib/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -50,10 +50,12 @@
                     <label for="toggle-all">Mark all for deletion</label>
                     <ul id="manifest-list"></ul>
                 </section>
-                <section id="content" class="col-md-8">Content</section>
+                <section id="content" class="col-md-8">
+                    <ul id="manifest-property-list"></ul>
+                </section>
             </div>
             <div class="row">
-                <footer id="footer" class="container">Foo</footer>
+                <footer id="footer" class="container"></footer>
             </div>    
         </div>
         
@@ -68,10 +70,18 @@
         <script type="text/template" id="manifest-template">
             <div class="view">
               <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-              <label><%= label %></label>
+              <label class="list-label" data-id="<%= id %>"><%= label %></label>
               <button class="destroy"></button>
             </div>
             <input class="edit" value="<%= label %>">
+        </script>
+
+        <script type="text/template" id="manifest-detail-template">
+            <div class="detail">
+              <h3><%= label %></h3>
+              <div class="field-label">id</div><div class="field-value"><%= id %></div>
+            </div>
+            <input class="edit" style="display:none;" value="<%= label %>">
         </script>
 
         <script type="text/template" id="stats-template">

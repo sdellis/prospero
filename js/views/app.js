@@ -14,10 +14,12 @@ var app = app || {};
 
     // Our template for the line of statistics at the bottom of the app.
     statsTemplate: _.template( $('#stats-template').html() ),
+    detailTemplate: _.template( $('#manifest-detail-template').html() ),
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
       'keypress #new-manifest': 'createOnEnter',
+      'click .list-label': 'select',
       'click #clear-completed': 'clearCompleted',
       'click #toggle-all': 'toggleAllComplete'
     },
@@ -29,6 +31,7 @@ var app = app || {};
       this.$input = this.$('#new-manifest');
       this.$footer = this.$('#footer');
       this.$main = this.$('#main');
+      this.$content = this.$('#content');
 
       this.listenTo(app.Manifests, 'add', this.addOne);
       this.listenTo(app.Manifests, 'reset', this.addAll);
@@ -66,6 +69,22 @@ var app = app || {};
       }
 
       this.allCheckbox.checked = !total;
+    },
+
+    // Select a single manifest item and display its properties in the content area
+    select: function( ev ) {
+      //var view = new app.ManifestView({ model: manifest });
+      // $('#manifest-list').append( view.render().el );
+
+      // get the manifest
+      var id = $(ev.currentTarget).data("id");
+      var thisManifest = app.Manifests.get(id);
+
+      this.$content.html(this.detailTemplate({
+          label: thisManifest.get("label"),
+          id: thisManifest.get("id")
+        }));
+
     },
 
 
