@@ -74,15 +74,19 @@ var app = app || {};
     // Select a single manifest item and display its properties in the content area
     select: function( ev ) {
       //var view = new app.ManifestView({ model: manifest });
-      // $('#manifest-list').append( view.render().el );
+      $('.list-label').removeClass( "active" );
+
+      $(ev.currentTarget).addClass( "active" );
 
       // get the manifest
       var id = $(ev.currentTarget).data("id");
       var thisManifest = app.Manifests.get(id);
+      var json = JSON.stringify(thisManifest, null, '\t');
 
       this.$content.html(this.detailTemplate({
           label: thisManifest.get("label"),
-          id: thisManifest.get("id")
+          id: thisManifest.get("id"),
+          json: json
         }));
 
     },

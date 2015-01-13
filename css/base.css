@@ -71,6 +71,33 @@ input[type="checkbox"] {
 	text-rendering: optimizeLegibility;
 }
 
+.active {
+	color: maroon;
+}
+
+.manifest-content {
+	border-top: solid 1px #e6e6e6;
+	margin-top: 20px;
+	padding-top: 10px;
+}
+
+.field-label {
+	float:left;
+	line-height: 20px;
+	letter-spacing: 0.05em;
+	color: #aaa;
+	width: 40px;
+	margin-right: 47px;
+	display: inline-block;
+	vertical-align: top;
+	clear: both;
+}
+
+.field-value {
+	line-height: 24px;
+	font-weight: bold;
+}
+
 #header {
 	padding-top: 15px;
 	border-radius: inherit;

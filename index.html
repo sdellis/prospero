@@ -79,7 +79,10 @@
         <script type="text/template" id="manifest-detail-template">
             <div class="detail">
               <h3><%= label %></h3>
-              <div class="field-label">id</div><div class="field-value"><%= id %></div>
+              <div class="manifest-content">
+                <div class="field-label">id</div><div class="field-value"><%= id %></div>
+              </div>
+              <pre style="margin-top:20px;"><%= json %></pre>
             </div>
             <input class="edit" style="display:none;" value="<%= label %>">
         </script>
